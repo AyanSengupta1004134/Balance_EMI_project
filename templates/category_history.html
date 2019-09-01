@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<center><h1>History for {{category_name}}</h1></center></br>
+<center><p>Total Amount : {{history[0][1]}}</p></center>
+    <table class="table table-striped" name="table">
+        <tr>
+            <th>ID</th>
+            <th>Amount</th>
+            <th>Paid</th>
+            <th>Balance</th>
+            <th>Date</th>
+            <th>Time</th>
+        </tr>
+        {% for amnt in history %}
+            <tr>
+                <td>{{amnt[0]}}</td>
+                <td>{{amnt[1]}}</a></td>
+                <td>{{amnt[3]}}</td>
+                <td>{{amnt[2]}}</td>
+                <td>{{amnt[4].split(' ')[0]}}</td>
+                <td>{{amnt[4].split(' ')[1]}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <center><a href="/edit_category/{{category_name}}" class="btn btn-primary" style='width: 80px;'>Edit</a></center>
+
+{% endblock %}

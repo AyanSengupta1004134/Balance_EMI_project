@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<center><h1>Edit Category</h1></center>
+<center><p><h3>Category Name: {{name}}</p></h3></center>
+<div class="jumbotron text-center">
+    <form method="POST">
+        <div class="form_group">
+            <label>Paid: </label>
+            <input type="text" name="paid">
+        </div>
+        <p><input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<center><h1>List of Categories</h1></center>
+    <table class="table table-striped" name="table">
+        <tr>
+            <th>ID</th>
+            <th>Category Name</th>
+            <th>Total Amount</th>
+            <th>Created Date</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for cat in category %}
+            <tr>
+                <td>{{cat[0]}}</td>
+                <td><a href="/show_history/{{cat[1]}}">{{cat[1]}}</a></td>
+                <td>{{cat[2]}}</td>
+                <td>{{cat[3]}}</td>
+                <td><a href="/edit_category/{{cat[1]}}" class="btn btn-default pull-right">Edit</a></td>
+                <td>
+                    <form action="{{url_for('delete_category', name=cat[1])}}" method="post">
+                        
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

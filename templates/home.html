@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="jumbotron text-center">
+    
+      <label for="business"><h3>Category Name</h3></label>
+      <select id='business' name="business" method="GET" action="/" style="width: 200px; height: 30px;">
+        <option value="{{cate[0]}}" selected>{{cate[0]}}</option>
+        {% for cate in cate[1:] %}
+          <option value="{{cate}}">{{cate}}</option>
+        {% endfor %}
+      </select>
+      <!-- <input class="btn btn-primary" type="submit" value="Get History"> -->
+      <form method='POST' action="/show_history/{{category_name}}"></form>
+        <input class="btn btn-info" type="submit" value="Edit Category">
+      </form>
+  <!-- </form> -->
+</div>
+{% endblock %}
